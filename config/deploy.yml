@@ -29,8 +29,8 @@ registry:
     - KAMAL_REGISTRY_PASSWORD
 
 # Check /up against 3000
-#healthcheck:
-#  exposed_port: 3000
+healthcheck:
+  port: 80
 
 # Configure custom arguments for Traefik
 traefik:
