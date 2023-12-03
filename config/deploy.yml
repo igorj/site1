@@ -9,12 +9,10 @@ servers:
   web:
     hosts:
       - 195.201.135.250
-    options:
-      "add-host": host.docker.internal:host-gateway
     labels:
-      traefik.http.routers.site1.rule: Host(`site1.masterybits.com`)
-      traefik.http.routers.site1.entrypoints: websecure
-      traefik.http.routers.site1.tls.certresolver: letsencrypt
+      traefik.http.routers.domain1.rule: Host(`site1.masterybits.com`)
+      traefik.http.routers.domain1.entrypoints: websecure
+      traefik.http.routers.domain1.tls.certresolver: letsencrypt
 
 # Use GIT_URL from env to auto-update site via git pulls.
 # Remember to run `kamal env push` after making changes!
@@ -48,7 +46,7 @@ traefik:
     entryPoints.web.http.redirections.entryPoint.scheme: https
     entryPoints.web.http.redirections.entrypoint.permanent: true
     entrypoints.websecure.http.tls: true
-    #entrypoints.websecure.http.tls.domains[0].main: "site1.masterybits.com"
+    entrypoints.websecure.http.tls.domains[0].main: "site1.masterybits.com"
     certificatesResolvers.letsencrypt.acme.email: "igorj@hey.com"
     certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
     certificatesResolvers.letsencrypt.acme.httpchallenge: true
