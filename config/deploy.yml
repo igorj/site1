@@ -27,14 +27,12 @@ registry:
   # Specify the registry server, if you're not using Docker Hub
   # server: registry.digitalocean.com / ghcr.io / ...
   username: igorj
-
-  # Always use an access token rather than real password when possible.
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-# Check /up against 4000
+# Check /up against 3000
 healthcheck:
-  port: 4000
+  exposed_port: 3000
 
 # Configure custom arguments for Traefik
 traefik:
